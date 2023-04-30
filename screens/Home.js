@@ -28,7 +28,7 @@ const Home = ({ navigation }) => {
     "Bearer Jw0oIMgpId1HV8x-mogAapr36SVRDSAM00qOEvAmLyxCaOV1I0T6kzJbSvazjA6Q7sNS46uHfHzRzLLAESkHYv3ES50h-sUQwtwvh836OsN-D5UwO6ObMswyxDM6YXYx";
 
   const params = {
-    Location: "san-jose",
+    Location: "sanjose",
     Limit: 50,
   };
   const getRestaurants = async () => {
@@ -38,10 +38,11 @@ const Home = ({ navigation }) => {
           params.Location
         )}&Limit=${encodeURIComponent(params.Limit)}`,
         {
+          credentials: "include",
+          mode: "cors",
           headers: {
             Authorization: apiKey,
           },
-          mode: "cors",
         }
       );
       const res = await response.json();
